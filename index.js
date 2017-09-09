@@ -10,7 +10,6 @@ function setCart(c) {
 }
 
 function addToCart(item) {
- // write your code here
  cart.push({[item]: Math.floor(Math.random() * 100) + 1});
  console.log(`${item} has been added to your cart.`);
  return cart;
@@ -31,7 +30,6 @@ function prettyPrintPrice(object) {
 }
 
 function viewCart() {
-  // write your code here
   if (cart.length === 0) {
     return console.log('Your shopping cart is empty.');
   }
@@ -54,13 +52,11 @@ function viewCart() {
 }
 
 function total() {
-  // write your code here
   const items = getKeysAndPrices(cart);
   return items.reduce((acc, curr) => acc + curr.price, 0);
 }
 
 function removeFromCart(item) {
-  // write your code here
   const newCart = cart.filter(el => !el.hasOwnProperty(item));
 
   if (newCart.length === cart.length) {
@@ -72,8 +68,9 @@ function removeFromCart(item) {
 }
 
 function placeOrder(cardNumber) {
-  // write your code here
-  if (!cardNumber) return console.log(`Sorry, we don't have a credit card on file for you.`);
+  if (!cardNumber) {
+    return console.log(`Sorry, we don't have a credit card on file for you.`)
+  };
 
   console.log(`Your total cost is $${total()}, which will be charged to the card ${cardNumber}.`);
   cart = [];
